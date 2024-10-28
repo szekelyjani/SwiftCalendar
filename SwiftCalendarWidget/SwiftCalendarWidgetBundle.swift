@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct SwiftCalendarWidgetBundle: WidgetBundle {
     var body: some Widget {
+        SwiftCalendarControl()
         SwiftCalendarWidget()
     }
 }

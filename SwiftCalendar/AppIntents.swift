@@ -29,6 +29,7 @@ struct ToggleStudyIntent: AppIntent {
         guard let day = try! context.fetch(descriptor).first else { return .result() }
         day.didStudy.toggle()
         try! context.save()
+        ControlCenter.shared.reloadControls(ofKind: "SwiftCalendarControl")
         return .result()
     }
 }
