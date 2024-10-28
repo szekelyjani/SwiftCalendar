@@ -10,23 +10,23 @@ import SwiftData
 
 @main
 struct SwiftCalendarApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    @State private var selectedTab = 0
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView(selection: $selectedTab) {
+                CalendarView()
+                    .tabItem { Label("Calendar", systemImage: "calendar") }
+                    .tag(0)
+                
+                StreakView()
+                    .tabItem { Label("Streak", systemImage: "swift") }
+                    .tag(1)
+            }
+            .modelContainer(Persistence.container)
+            .onOpenURL { url in
+                selectedTab = url.absoluteString == "calendar" ? 0 : 1
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
