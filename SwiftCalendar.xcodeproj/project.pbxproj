@@ -72,6 +72,7 @@
 				Views/SwiftCalendarMediumView.swift,
 				Views/SwiftCalendarSmallView.swift,
 				Views/SwiftCalendarWidgetEntryView.swift,
+				WidgetModifiers.swift,
 			);
 			target = ACE8671C2CCD0FAF0053D485 /* SwiftCalendar */;
 		};

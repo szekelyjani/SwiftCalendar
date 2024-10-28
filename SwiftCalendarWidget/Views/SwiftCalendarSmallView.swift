@@ -23,6 +23,7 @@ struct SwiftCalendarSmallView: View {
                         .bold()
                         .foregroundStyle(streakValue > 0 ? .orange : .pink)
                         .contentTransition(.numericText())
+                        .widgetAccentable()
                     
                     Text("day streak")
                         .font(.caption2)
@@ -36,6 +37,7 @@ struct SwiftCalendarSmallView: View {
             .font(.caption2)
             .tint(today.didStudy ? .mint : .orange)
             .controlSize(.small)
+            .widgetAccentable()
         }
     }
 }

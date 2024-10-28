@@ -25,6 +25,7 @@ struct SwiftCalendarMediumView: View {
                             .bold()
                             .foregroundStyle(streakValue > 0 ? .orange : .pink)
                             .contentTransition(.numericText())
+                            .widgetAccentable()
                         
                         Text("day streak")
                             .font(.caption)
@@ -38,6 +39,7 @@ struct SwiftCalendarMediumView: View {
                 .font(.caption2)
                 .tint(today.didStudy ? .mint : .orange)
                 .controlSize(.small)
+                .widgetAccentable()
             }
             .frame(width: 90)
             
@@ -59,6 +61,7 @@ struct SwiftCalendarMediumView: View {
                                             .foregroundStyle(.orange.opacity(day.didStudy ? 0.3 : 0.0))
                                             .scaleEffect(1.3)
                                     }
+                                    .didStudyAccentable(day.didStudy)
                             }
                         }
                     }
